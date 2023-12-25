@@ -1,0 +1,37 @@
+<% include ./partials/header.ejs %>
+<div  class="bg-slate-100 text-black p-4 w-100% h-screen">
+    <div class="w-full h-full flex gap-6">
+        <% allposts.forEach(element => { %>
+            <div class="w-32">
+                <a href="/feed/<%= element._id %>/pinshow">
+                   <div class="pins h-40 overflow-hidden rounded-2xl w-32 bg-slate-500">
+                       <img class="object-cover w-[100%] h-[100%] rounded-xl" src="/images/uploads/<%= element.image %>" alt="">
+                   </div>
+                </a>
+                <div>
+                    <h1 class="text-lg w-[100%]">
+                        <% if (element.user.profilename.length <= 16) { %>
+                            <%= element.user.profilename %>
+                        <% } else { %>
+                            <%= element.user.profilename.slice(0, 16) %>...
+                        <% } %>
+                    </h1>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<% include ./partials/footer.ejs %>
+
+
+
+
+
+<!-- // 123 -->
+<!-- // 123 -->
+
+
+
+<!-- // 456 -->
+<!-- // 456 -->

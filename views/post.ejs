@@ -1,0 +1,35 @@
+<% include ./partials/header.ejs %>
+
+<div class="w-full text-black h-screen bg-slate-100">
+    <h1 class="pt-3 pl-3 text-white text-xl font-semibold">Create new post</h1>
+    <div class="flex justify-center pt-5 h-[70%] w-full items-center">
+        <div class="bg-slate-100 h-full w-[30%]">
+            <span class="h-full w-full flex flex-col justify-center items-center">
+                <i id="addimg" class="ri-add-circle-fill cursor-pointer text-black text-[60px]"></i>
+                <p id="uploadstatus" class="self-center opacity-70 text-black text-xl">Upload Image</p>
+            </span>
+        </div>
+        <div class="bg-zinc-200  w-[30%] flex justify-center items-center h-full">
+            <form id="uploadimg" enctype="multipart/form-data" method="post" action="/createpost" class=" h-[75%] w-[80%] gap-6 flex justify-center items-center flex-col">
+                <input hidden type="file" name="postimage">
+                <input  required class="text-black bg-white h-12 w-[95%] focus:outline-none font-serif rounded-2xl pl-3 text-lg selection:border-none" type="text" name="title"  placeholder="Title">
+                <textarea rows="8" required class="text-black resize-none bg-white min-[45px]: w-[95%] focus:outline-none font-serif rounded-2xl pl-3 text-lg selection:border-none" type="text" name="desc" placeholder="Desc"></textarea>
+                <button id="uploadbutton" class="py-3 px-9 text-lg font-semibold bg-red-600 hover:bg-red-700 rounded-3xl">Add Post</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelector("#addimg").addEventListener("click",(e)=>{
+        document.querySelector("#uploadimg input[type=file]").click()
+    })
+    document.querySelector("#uploadimg input[type=file]").addEventListener("change",(e)=>{
+        document.querySelector("#uploadstatus").innerHTML="Uploaded Successfully"
+        document.querySelector("#uploadbutton").addEventListener("click",(e)=>{
+            document.querySelector("#uploadimg").submit()
+        })
+    })
+
+</script>
+<% include ./partials/footer.ejs %>

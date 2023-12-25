@@ -1,0 +1,57 @@
+<% include ./partials/header.ejs %>
+
+    
+    <div  id="profile" class="text-black profile w-full min-h-screen pt-1  ">
+        <form id="uploadform" hidden action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="image">
+        </form>
+        <div class="flex flex-col justify-center mt-5 items-center mb-4" id="profileDetails">
+            <div class="relative">
+                <div class="w-32 h-32 bg-zinc-400 rounded-full overflow-hidden">
+                    <% if (currentUser.profileImage) { %>
+                        <img class="h-full w-full" src="/images/uploads/<%=currentUser.profileImage %>" alt="">
+                    <% } else { %>
+                        <svg class="h-[100%] w-[100%]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"></path><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM6.02332 15.4163C7.49083 17.6069 9.69511 19 12.1597 19C14.6243 19 16.8286 17.6069 18.2961 15.4163C16.6885 13.9172 14.5312 13 12.1597 13C9.78821 13 7.63095 13.9172 6.02332 15.4163ZM12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z" fill="#e9e9e9"></path></svg>
+                        <% } %>
+                </div>
+                <div class="cursor-pointer absolute flex justify-center items-center right-0 bottom-0 w-10 h-10 bg-red-600 hover:bg-[#c6001e] rounded-full">
+                    <span id="uploadicon">
+                        <i class="ri-pencil-line text-white text-xl"></i>
+                    </span>
+                </div>
+            </div>
+            <h1 class="text-3xl mt-2"><%=currentUser.profilename %> </h1>
+            <span><%=currentUser.desc %></span>
+
+            <div class="flex gap-5">
+                <a href="/updateprofile" class="bg-zinc-300 hover:bg-zinc-400 py-2 px-8 mt-2 rounded-3xl">Edit</a>
+                <a href="/post" class="bg-[#e60023] hover:bg-[#c6001e] py-2 text-white px-8 mt-2 rounded-3xl" type="button">Add New Post</a>
+            </div>
+        </div>
+        <div id="cards" class="flex flex-wrap gap-8 px-7 mt-4">
+            <% if (currentUser.posts.length!==0) { %>
+                <div id="card">
+                    <div class="w-36 h-36 object-cover overflow-hidden bg-gray-500 rounded-md mb-2">
+                        <img class="object-cover w-full h-full" src="/images/uploads/<%= currentUser.posts[0].image %>" alt="">
+                    </div>
+                    <a href="/showpins" class="font-semibold text-xl">Your Uploaded Pins</a>
+                    <h4 class="font-semibold text-base"><%= currentUser.posts.length %></h4>
+                </div>     
+            <% } else { %>
+             <h1 class="text-2xl font-semibold">No Uploads</h1>
+            <% } %>
+        </div>
+    </div>
+
+
+    <script>
+        document.querySelector("#uploadicon").addEventListener("click",(e)=>{
+                document.querySelector("#uploadform input").click()
+        })
+
+        document.querySelector("#uploadform input").addEventListener("change",(e)=>{
+            document.querySelector("#uploadform").submit()
+        })
+    </script>
+
+<% include ./partials/footer.ejs %>

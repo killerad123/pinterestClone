@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.0.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+<% if (nav===true) { %>
+    <div class="w-full sticky top-0 z-10 text-black bg-white py-3 flex justify-between">
+        
+        <a href="/feed" class="text-3xl ml-4">
+            <img class="h-8 w-fit mt-1" src="/images/download-removebg-preview (1).png" alt="logo">
+        </a>
+        <div class="flex gap-10 font-semibold items-center mr-4">
+            <a class="text-lg" href="/profile">Profile</a>
+            <a class="text-lg" href="/feed">Feed</a>
+            <a class="bg-[#e60023] hover:bg-[#c6001e] text-white text-lg px-5 py-2 rounded-3xl" href="/logout">Log out</a>
+        </div>
+    </div>
+<% } %>
+    

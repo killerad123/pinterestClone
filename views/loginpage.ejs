@@ -1,0 +1,31 @@
+<% include ./partials/header.ejs %>
+
+    <div class="bg-slate-100 tracking-tight font-mono flex justify-center items-center width-[100vw] h-screen">
+      <div class="bg-white rounded-3xl h-max w-[25%] box-border p-11">
+         <div class="flex justify-center items-center">
+          <img class="h-16 w-fit" src="/images/pinterest-png.webp" alt="">
+         </div>
+          <h1 class="text-center py-5 font-semibold text-3xl">Log In</h1>
+          <form action="/login" method="post">
+            <div class="flex justify-center items-center flex-col">
+             <input type="text" name="username"  class="my-3 text-lg h-[55px] w-[75%] rounded-2xl pl-3 border-gray-500 border-2 focus:outline-blue-300 focus:outline-4 focus:outline border-opacity-50 font-semibold" placeholder="Username">
+             <input type="password" name="password"  class="my-3 text-lg w-[75%] h-[55px] rounded-2xl pl-3 border-gray-500 border-opacity-50 focus:outline-blue-300 focus:outline-4 focus:outline font-semibold border-2" placeholder="Password">
+            </div>
+          <div class="w-full h-12 mt-2 flex justify-center items-center">
+            <button type="submit" class="bg-red-600 text-white font-semibold text-xl box-border rounded-3xl w-[75%] h-full hover:bg-red-700">Log In</button>
+          </div>
+          </form>
+          <div class="flex justify-center mt-12 text-base flex-col items-center">
+            <p>By continuing, you agree to Pinterest's</p>
+            <p> <span class="font-bold">Terms of Service</span> acknowledge you've read our</p>
+            <p class="font-bold">Privacy Policy. Notice at collection.
+            </p>
+          </div>
+          <div class="font-bold flex text-lg justify-center items-center">
+            <p class="mx-2">Not on Pinterest?</p>
+            <a class="underline" href="/">Sign Up</a>
+          </div>
+      </div>
+    </div>
+
+    <% include ./partials/footer.ejs %>

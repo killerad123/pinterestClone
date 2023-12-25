@@ -1,0 +1,21 @@
+<% include ./partials/header.ejs %>
+<div class="bg-white h-screen w-[100%]">
+   <div class="h-full w-full flex justify-center items-center">
+    <div class="bg-white shadow-slate-400 shadow-2xl w-[60%] rounded-xl h-[65%] flex gap-2">
+        <div class="pinimg  rounded-xl border-r-[1px]  border-black border-opacity-15 w-[50%] h-[100%]">
+            <img class="w-[100%] rounded-xl h-[100%] object-cover" src="/images/uploads/<%=pindata.image%>" alt="">
+        </div>
+        <div class="pininfo rounded-xl w-[50%] h-[100%]">
+            <div class=" rounded-xl pl-2 h-[20%]">
+                <h1 class="text-2xl">Uploaded By</h1>
+                <span class="text-lg opacity-75"><%=pindata.user.profilename%></span>
+            </div>
+            <div class="pt-3 pl-2 rounded-xl overflow-auto h-[80%] flex flex-col gap-4">
+                <h2 class="text-5xl font-semibold"><%=pindata.title %></h2>
+                <h3 class="text-xl mt-3 opacity-75"><%=pindata.desc %></h3>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<% include ./partials/footer.ejs %>

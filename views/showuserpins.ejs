@@ -1,0 +1,13 @@
+<% include ./partials/header.ejs %>
+<div class="h-screen text-black w-full bg-slate-100">
+<div class="p-4 flex gap-4 flex-wrap">
+    <% currentUser.posts.forEach(element => { %>
+        <div id="pincard" class=" rounded-lg overflow-hidden w-40 h-60">
+            <img class="h-[90%] object-contain rounded-lg w-full" src="/images/uploads/<%=element.image %>" alt="">
+            <h1 class="  text-xl pl-2"><%=element.title %></h1>
+        </div>
+    <% }) %>
+</div>    
+
+</div>
+<% include ./partials/footer.ejs %>
